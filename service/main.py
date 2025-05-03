@@ -1,11 +1,11 @@
 import fastapi
 import uvicorn
+from routes.api import router as api_router
+
 
 app = fastapi.FastAPI()
 
-@app.get("/")
-async def read_root():
-    return {"message": "Hello World"}
+app.include_router(api_router)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=8080, reload=True)
+    uvicorn.run("service.main:app", host="0.0.0.0", port=8080, reload=True)
