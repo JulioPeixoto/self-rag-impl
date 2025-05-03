@@ -12,7 +12,7 @@ def get_rag_service():
 
 @router.get("/")
 async def read_root():
-    return {"message": "Self-RAG API"}
+    return {"message": "Self-RAG API, go to /docs to see the API documentation/Swagger UI"}
 
 @router.post("/query", response_model=QueryResponse)
 async def create_query(
